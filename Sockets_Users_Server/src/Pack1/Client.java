@@ -1,0 +1,36 @@
+package Pack1;
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+//Client class
+public class Client{
+    public static void main (String [] args){
+        try{
+            Scanner reader = new Scanner(System.in);
+            InetAddress ip = InetAddress.getByName("localhost");
+            Socket socket = new Socket(ip,5500);
+            DataInputStream dataIn = new DataInputStream(socket.getInputStream());
+            DataOutputStream dataOut = new DataOutputStream(socket.getOutputStream());
+            while(true){
+                System.out.println(dataIn.readUTF());
+                String toSend = reader.nextLine();
+                dataOut.writeUTF(toSend);
+                if(toSend.equals("Exit")){
+                    System.out.println("Closing this connection: " + socket);
+                    socket.close();
+                    System.out.println("Connection closed!");
+                    break;
+                }
+                String received = dataIn.readUTF();
+                System.out.println(received);
+            }
+            reader.close();
+            dataIn.close();
+            dataOut.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}
