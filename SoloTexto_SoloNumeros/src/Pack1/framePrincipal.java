@@ -140,7 +140,7 @@ public class framePrincipal extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 	if((c < '0' || c > '9') && c != '.'){
 	    evt.consume();
-	    JOptionPane.showMessageDialog(null,"Solo se aceptan letras pana","ERROR",JOptionPane.ERROR_MESSAGE);
+	    JOptionPane.showMessageDialog(null,"Solo se aceptan numeros pana","ERROR",JOptionPane.ERROR_MESSAGE);
 	}
     }//GEN-LAST:event_txtNumerosKeyTyped
 
