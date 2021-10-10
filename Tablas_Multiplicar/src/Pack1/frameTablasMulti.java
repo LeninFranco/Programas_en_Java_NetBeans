@@ -16,6 +16,7 @@ public class frameTablasMulti extends javax.swing.JFrame {
     public frameTablasMulti() {
 	initComponents();
 	btnMostrar.setEnabled(false);
+	TextArea.setEditable(false);
     }
 
     /**
@@ -189,6 +190,9 @@ public class frameTablasMulti extends javax.swing.JFrame {
 	TextArea.append("Tabla de multiplicar del " + num + "\n\n");
 	for(int i = from;i <= to;i++) TextArea.append(num + " X " + i + " = " + num*i+"\n");
 	btnMostrar.setEnabled(false);
+	txtNum.setText("");
+	txtFrom.setText("");
+	txtTo.setText("");
     }                                          
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {                                         
