@@ -24,23 +24,23 @@ public class framePrincipal extends javax.swing.JFrame {
     
     public String[] Datos(String opc){
 	if(opc.equalsIgnoreCase("Heavy Metal")){
-	    String[] datos = {"Black Sabbath","Iron Maiden", "Judas Priest", "Accept", "Grave Digger"};
+	    String[] datos = {"Seleccione","Black Sabbath","Iron Maiden", "Judas Priest", "Accept", "Grave Digger"};
 	    return datos;
 	}
 	if(opc.equalsIgnoreCase("Thrash Metal")){
-	    String[] datos = {"Megadeth", "Metallica", "Kreator", "Sodom", "Slayer"};
+	    String[] datos = {"Seleccione","Megadeth", "Metallica", "Kreator", "Sodom", "Slayer"};
 	    return datos;
 	}
 	if(opc.equalsIgnoreCase("Power Metal")){
-	    String[] datos = {"Helloween","Blind Guardian", "Stratovarius", "Angra", "Rhapsody"};
+	    String[] datos = {"Seleccione","Helloween","Blind Guardian", "Stratovarius", "Angra", "Rhapsody"};
 	    return datos;
 	}
 	if(opc.equalsIgnoreCase("Death Metal")){
-	    String[] datos = {"Death","Obituary", "Entombed", "Possessed", "Deicide"};
+	    String[] datos = {"Seleccione","Death","Obituary", "Entombed", "Possessed", "Deicide"};
 	    return datos;
 	}
 	if(opc.equalsIgnoreCase("Black Metal")){
-	    String[] datos = {"Mayhem","Bathory", "Marduk", "Immortal", "Gorgoroth","Behemoth"};
+	    String[] datos = {"Seleccione","Mayhem","Bathory", "Marduk", "Immortal", "Gorgoroth","Behemoth"};
 	    return datos;
 	}
 	return null;
@@ -129,11 +129,19 @@ public class framePrincipal extends javax.swing.JFrame {
 	    else{
 		cbBanda.removeAllItems();
 	    }
+	    lbResultado.setText("");
 	}
     }//GEN-LAST:event_cbGeneroItemStateChanged
 
     private void cbBandaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbBandaItemStateChanged
-	lbResultado.setText((String)cbBanda.getSelectedItem());
+	if(evt.getStateChange() == ItemEvent.SELECTED){ 
+	    if(cbBanda.getSelectedIndex() > 0){
+		lbResultado.setText((String)cbBanda.getSelectedItem());
+	    }
+	    else{
+		lbResultado.setText("");
+	    }
+	}
     }//GEN-LAST:event_cbBandaItemStateChanged
 
     /**
